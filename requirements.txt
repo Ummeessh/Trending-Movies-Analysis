@@ -6,4 +6,3 @@ joblib
 sentence-transformers
 scikit-learn
 requests
-os
