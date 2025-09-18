@@ -443,14 +443,23 @@ else:
     # --- PREDICTION PAGE ---
     elif page == "🤖 Prediction":
         st.title("🤖 Movie Rating Prediction")
-
+        import requests
+        import os
         @st.cache_resource
         def load_model():
+            model_path = "vote_average_predictor.pkl"
+            if not os.path.exists(model_path):
+                try:
+                    url = "https://www.dropbox.com/scl/fi/fa9nqbtxmm7rtgtrry9yy/vote_average_predictor.pkl?rlkey=c420zp2hdgmilvpzwkyc3xbme&st=uhm1g2br&dl=1"
+                    r = requests.get(url)
+                    r.raise_for_status()  # Raise error if download fails
+                    with open(model_path, "wb") as f:
+                        f.write(r.content)
+                except Exception as e:
+                    st.error(f"Error downloading model from Dropbox: {str(e)}")
+                    return None
             try:
-                return joblib.load("notebooks/vote_average_predictor.pkl")
-            except FileNotFoundError:
-                st.error("Model file 'vote_average_predictor.pkl' not found. Please retrain the model.")
-                return None
+                return joblib.load(model_path)
             except Exception as e:
                 st.error(f"Error loading model: {str(e)}")
                 return None
