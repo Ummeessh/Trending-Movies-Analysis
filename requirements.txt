@@ -4,7 +4,7 @@ numpy
 plotly==5.15.0
 joblib
 sentence-transformers==2.2.2
-transformers==4.30.2
-torch>=1.13.0
+transformers>=4.46.0
+torch>=2.2.0
 scikit-learn
 requests
