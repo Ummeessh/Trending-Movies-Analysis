@@ -1,9 +1,10 @@
-streamlit
+streamlit==1.49.1
 pandas
 numpy
 plotly==5.15.0
 joblib
 sentence-transformers==2.2.2
 transformers==4.30.2
+torch>=1.13.0
 scikit-learn
 requests
