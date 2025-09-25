@@ -1,8 +1,9 @@
-streamlit==1.49.1
+streamlit
 pandas
 numpy
 plotly==5.15.0
 joblib
-sentence-transformers
+sentence-transformers==2.2.2
+transformers==4.30.2
 scikit-learn
 requests
